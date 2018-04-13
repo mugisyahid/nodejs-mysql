@@ -2,7 +2,6 @@
 
 const mysql = require('mysql')
 const config = require('../config')
-const logger = require('../service/logger')
 
 const pool = mysql.createPool({
   host: config.mysql.host,
@@ -11,7 +10,7 @@ const pool = mysql.createPool({
   database: config.mysql.database
 })
 
-const DB = (function () {
+var DB = (function () {
 
   function _query(query, params, callback) {
     pool.getConnection(function (err, connection) {

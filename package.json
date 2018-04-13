@@ -1,14 +1,23 @@
 {
-  "name": "test",
+  "name": "nodejs-mysql",
   "version": "1.0.0",
-  "description": "",
-  "main": "app.js",
+  "description": "nodejs-mysql implementatiton",
+  "main": "index.js",
   "scripts": {
-    "start": "node ./src/server.js",
-    "dev": "nodemon ./src/server.js",
+    "start": "pm2 start ./app.js",
+    "node-start": "node ./app.js",
+    "dev": "nodemon ./app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "keywords": [
+    "mysql",
+    "email",
+    "smtp"
+  ],
+  "author": "Ligar Mugi Syahid",
+  "license": "ISC",
   "dependencies": {
+    "@sendgrid/mail": "^6.2.1",
     "body-parser": "^1.18.2",
     "cors": "^2.8.4",
     "ejs": "^2.5.7",
@@ -16,13 +25,13 @@
     "express": "^4.16.3",
     "morgan": "^1.9.0",
     "mysql": "^2.15.0",
+    "pm2": "^2.10.2",
     "request": "^2.85.0",
     "winston": "^3.0.0-rc2",
     "winston-daily-rotate-file": "^3.0.1"
   },
   "devDependencies": {
+    "newman": "^3.8.2",
     "nodemon": "^1.17.1"
-  },
-  "author": "Ligar Mugi Syahid",
-  "license": "ISC"
+  }
 }

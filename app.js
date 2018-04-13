@@ -7,7 +7,6 @@ const path = require('path')
 const bodyParser = require('body-parser')
 const errorhandler = require('errorhandler')
 
-
 // custom import
 const config = require('./config')
 const logger = require('./service/logger')
@@ -27,7 +26,7 @@ if (!config.isProduction) {
 }
 
 // routes
-app.use(require('./router'))
+app.use(require('./routes'))
 
 /// catch 404 and forward to error handler
 app.use(function (req, res, next) {
@@ -67,13 +66,12 @@ app.use(function (err, req, res, next) {
   })
 })
 
-// start server...
 const server = app.listen(config.port, function () {
   logger.info('[starting] ' + config.appName + ' : ' + server.address().port)
   // call api to start
   request('http://localhost' + ':' + server.address().port + '/start', { json: true }, (err, res, body) => {
     if (err) { return console.log(err); }
-    logger.info(res.body);
   })
 
 })
+
