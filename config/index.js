@@ -18,8 +18,8 @@ module.exports = {
     debug: false
   },
   sendgrid: {
-    secret: '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',
-    secret2: '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'
+    secret: 'secret',
+    secret2: 'secret2'
   },
   secret: process.env.NODE_ENV === 'production' ? process.env.SECRET : 'secret',
   isTest: true,
